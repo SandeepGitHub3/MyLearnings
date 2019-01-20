@@ -1,3 +1,2 @@
-# MyLearnings
-My learnings
-1-Sorting Algorithms
+# Java Adventures
+Contains my learnings about core java concepts along with Data structures and Algorithms.
