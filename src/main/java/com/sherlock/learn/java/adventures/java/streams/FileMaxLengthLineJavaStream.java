@@ -23,5 +23,19 @@ public class FileMaxLengthLineJavaStream {
 		System.out.println(String.format("Max Length String :%s", lineStreamSupplier.get().
 				max(Comparator.comparingInt(String::length))
 				.get()));
+
+		/*Using Reduce*/
+		System.out.println(String.format("Max Length Using Reduce 1 :%d", lineStreamSupplier.get()
+				.mapToInt(String::length)
+				.reduce(Integer::max)
+				.getAsInt()));
+
+		System.out.println(String.format("Max Length Using Reduce 1 :%d", lineStreamSupplier.get()
+				.mapToInt(String::length)
+				.reduce(0, (value1, value2) -> value1 > value2 ? value1 : value2)));
+
+		System.out.println(String.format("Max Length String Using Reduce :%s", lineStreamSupplier.get().
+				reduce((line1, line2) -> line1.length() > line2.length() ? line1 : line2)
+				.get()));
 	}
 }
